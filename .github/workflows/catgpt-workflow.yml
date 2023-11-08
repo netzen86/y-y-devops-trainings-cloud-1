@@ -12,6 +12,7 @@ jobs:
         uses: yc-actions/yc-cr-login@v1
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+          # this generated key
 
       - name: Build, tag, and push image to Yandex Cloud Container Registry
         env:

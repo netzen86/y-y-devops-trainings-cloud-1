@@ -19,5 +19,6 @@ jobs:
           CR_REGISTRY: crpbccj0cfhnv6t6ocnd
           IMAGE_TAG: catgpt:latest
         run: |
-          docker build -t cr.yandex/$CR_REGISTRY/$IMAGE_TAG catgpt/.
+          pwd
+          docker build -t cr.yandex/$CR_REGISTRY/$IMAGE_TAG .
           docker push cr.yandex/$CR_REGISTRY/$IMAGE_TAG

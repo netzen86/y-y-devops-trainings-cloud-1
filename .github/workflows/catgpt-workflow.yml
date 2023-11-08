@@ -3,19 +3,19 @@ name: Docker Image CI
 on: [push]
 
 jobs:
+  build_and_push_to_yc:
+    name: Push Docker image to Yandex Cloud Registry
+    steps:
+      - name: Login to Yandex Cloud Container Registry
+        id: login-cr
+        uses: yc-actions/yc-cr-login@v1
+        with:
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
 
-  build:
-
-    - name: Login to Yandex Cloud Container Registry
-      id: login-cr
-      uses: yc-actions/yc-cr-login@v1
-      with:
-        yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
-
-    - name: Build, tag, and push image to Yandex Cloud Container Registry
-      env:
-        CR_REGISTRY: crpbccj0cfhnv6t6ocnd
-        IMAGE_TAG: catgpt:latest
-      run: |
-        docker build -t cr.yandex/$CR_REGISTRY/$IMAGE_TAG .
-        docker push cr.yandex/$CR_REGISTRY/$IMAGE_TAG
+      - name: Build, tag, and push image to Yandex Cloud Container Registry
+        env:
+          CR_REGISTRY: crpbccj0cfhnv6t6ocnd
+          IMAGE_TAG: catgpt:latest
+        run: |
+          docker build -t cr.yandex/$CR_REGISTRY/$IMAGE_TAG .
+          docker push cr.yandex/$CR_REGISTRY/$IMAGE_TAG

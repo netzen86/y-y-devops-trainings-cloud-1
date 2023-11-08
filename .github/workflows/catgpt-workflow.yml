@@ -5,6 +5,7 @@ on: [push]
 jobs:
   build_and_push_to_yc:
     name: Push Docker image to Yandex Cloud Registry
+    runs-on: ubuntu-latest
     steps:
       - name: Login to Yandex Cloud Container Registry
         id: login-cr

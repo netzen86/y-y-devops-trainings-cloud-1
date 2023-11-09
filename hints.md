@@ -2,7 +2,7 @@
 # docker tag catgpt cr.yandex/crpbccj0cfhnv6t6ocnd/catgpt:latest
 # docker push cr.yandex/crpbccj0cfhnv6t6ocnd/catgpt:latest
 
-# yc iam key create --service-account-name nz-catgpt-sa -o key.json\\
+# yc iam key create --service-account-name nz-catgpt-sa -o key.json
 
 yc config set service-account-key key.json
 yc config set cloud-id b1g0vh6uspd0m39d5er6

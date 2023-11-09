@@ -8,8 +8,8 @@ terraform {
 }
 
 provider "yandex" {
-  service_account_key_file = "./tf_key.json"
-  folder_id                = local.folder_id
+  service_account_key_file = "../../key.json"
+  folder_id                = b1g5tv4fsuuk2l9gvd1p
   zone                     = "ru-central1-a"
 }
 

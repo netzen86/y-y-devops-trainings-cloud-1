@@ -2,6 +2,8 @@ version: '3.7'
 services:
   catgpt:
     container_name: catgpt
-    image: "cr.yandex/<INSERT_YOUR_IMAGE_TAG_HERE>"
+    image: "cr.yandex/crpbccj0cfhnv6t6ocnd/catgpt:latest"
     restart: always
+    ports:
+      - "8080:8080"
     network_mode: "host"

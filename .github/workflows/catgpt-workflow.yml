@@ -19,7 +19,7 @@ jobs:
       - name: Build, tag, and push image to Yandex Cloud Container Registry
         env:
           CR_REGISTRY: crpbccj0cfhnv6t6ocnd
-          IMAGE_TAG: catgpt:latest
+          IMAGE_TAG: catgpt:${{ github.sha }}
         run: |
           docker build -t cr.yandex/$CR_REGISTRY/$IMAGE_TAG catgpt/.
           docker push cr.yandex/$CR_REGISTRY/$IMAGE_TAG

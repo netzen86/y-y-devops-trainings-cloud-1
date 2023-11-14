@@ -1,4 +1,4 @@
-ARG GOARCH=arm64
+ARG GOARCH=amd64
 FROM golang:1.21 AS builder
 
 WORKDIR /build

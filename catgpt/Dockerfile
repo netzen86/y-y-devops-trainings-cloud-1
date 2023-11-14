@@ -1,21 +1,15 @@
+ARG GOARCH=arm64
 FROM golang:1.21 AS builder
-
-ENV CGO_ENABLED 0
-ARG GOARCH=amd64
 
 WORKDIR /build
 
-# Download Go modules
+# COPY go.mod go.sum ./
+# https://docs.docker.com/engine/reference/builder/#copy
 COPY . .
+# Download Go modules
 RUN go mod download
 
-# Copy the source code. Note the slash at the end, as explained in
-# https://docs.docker.com/engine/reference/builder/#copy
-# COPY *.go ./
-# COPY *.png ./
-# COPY tpl ./tpl
-
-RUN GOARCH=${GOARCH} go build -o catgpt
+RUN CGO_ENABLED=0 GOARCH=${GOARCH} go build -o catgpt
 
 FROM gcr.io/distroless/static-debian12:latest-${GOARCH}
 

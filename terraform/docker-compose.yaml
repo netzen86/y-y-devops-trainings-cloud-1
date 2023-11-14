@@ -4,6 +4,5 @@ services:
     container_name: catgpt
     image: "cr.yandex/crpbccj0cfhnv6t6ocnd/catgpt:latest"
     restart: always
-    ports:
-      - "8080:8080"
     network_mode: "host"
+  
